@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meet Our Head Chef – The Heart Behind Afropot | Afropot Blog</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      background: #f5f9f4;
+      color: #1a2d16;
+      line-height: 1.6;
+    }
+
+    /* ===== NAVBAR ===== */
+    header.navbar {
+      background-color: #76b852;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+    }
+
+    .navbar-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.9rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: nowrap;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1a2d16;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: #000;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(0,0,0,0.1);
+      color: #fff !important;
+    }
+
+    .nav-links a.active {
+      background-color: #1a2d16;
+      color: #fff !important;
+    }
+
+    .cart-box {
+      background: #fff;
+      color: #1a2d16;
+      padding: 6px 14px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .cart-box:hover {
+      background-color: #8de264;
+      color: #0f3314;
+    }
+
+    /* ===== HERO ===== */
+    .blog-hero {
+      background: linear-gradient(120deg, #76b852 0%, #8de264 100%);
+      text-align: center;
+      padding: 3rem 1.5rem;
+      color: white;
+    }
+
+    .blog-hero h1 {
+      font-size: 2.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .blog-hero p {
+      font-size: 1.05rem;
+      color: #f2fdf0;
+    }
+
+    /* ===== CONTENT ===== */
+    .blog-content {
+      max-width: 900px;
+      margin: 3rem auto;
+      background: #fff;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .blog-content img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+    }
+
+    .blog-content h2 {
+      color: #0f3314;
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .blog-content p {
+      color: #333;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .quote {
+      font-style: italic;
+      background: #eafde3;
+      padding: 1rem;
+      border-left: 5px solid #76b852;
+      border-radius: 6px;
+      margin: 1.5rem 0;
+      color: #0f3314;
+    }
+
+    /* ===== BUTTON ===== */
+    .back-btn {
+      display: inline-block;
+      background: #76b852;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 2rem;
+      transition: background 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background: #5f9e43;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: linear-gradient(180deg, #0f3314 0%, #1f5a2c 100%);
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      margin-top: 3rem;
+    }
+
+    footer a {
+      color: #8de264;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .blog-content {
+        padding: 1.5rem;
+      }
+      .blog-hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ✅ NAVBAR -->
+  <header class="navbar">
+    <div class="navbar-container">
+      <h1 class="logo">Afropot</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="catering.html">Catering</a></li>
+        <li><a href="giftcard.html">Gift Card</a></li>
+        <li><a href="delivery.html">Delivery</a></li>
+        <li><a href="track-order.html">Track Order</a></li>
+        <li><a class="active" href="blog.html">Blog</a></li>
+      </ul>
+      <div class="cart-box"><i class="fa-solid fa-cart-shopping"></i> My Orders</div>
+    </div>
+  </header>
+
+  <!-- 📰 HERO -->
+  <section class="blog-hero">
+    <h1>Meet Our Head Chef – The Heart Behind Afropot</h1>
+    <p>Discover the story of Chef Guvenand his passion for bringing authentic Nigerian taste to Berlin.</p>
+  </section>
+
+  <!-- 👩‍🍳 BLOG CONTENT -->
+  <section class="blog-content">
+    <img src="images/chef-Guven.jpg" alt="Chef Guven – Afropot Head Chef">
+
+    <p>Behind every flavourful dish at Afropot is the creativity and dedication of our Head Chef, <strong>Chef Guven</strong>. His journey began in northern Nigeria, where he grew up surrounded by the aroma of freshly cooked soups, grilled meat, and traditional spices.</p>
+
+    <div class="quote">
+      “Food is more than what we eat — it’s a way to connect people, share culture, and tell our stories.” – Chef Guven
+    </div>
+
+    <h2>1️⃣ A Culinary Journey Rooted in Culture</h2>
+    <p>Chef Guven learned to cook from his grandmother, mastering recipes passed down through generations. His deep understanding of local flavours, ingredients, and traditions shapes every meal we serve at Afropot.</p>
+
+    <h2>2️⃣ Bringing Nigeria to Berlin</h2>
+    <p>When Chef Guven moved to Berlin, he noticed how many people longed for home-cooked Nigerian meals. That inspired him to start Afropot — a place where authentic African dishes meet modern delivery convenience.</p>
+
+    <h2>3️⃣ Freshness and Heart in Every Dish</h2>
+    <p>From Jollof Rice to Egusi Soup, every Afropot meal carries Chef Guven’s signature touch — freshness, warmth, and heart. His goal is simple: to make everyone who tastes his food feel at home, no matter where they are.</p>
+
+    <h2>4️⃣ Leading with Passion</h2>
+    <p>Chef Guven leads a diverse kitchen team, training young cooks to preserve traditional Nigerian recipes while experimenting with new flavours. Under his guidance, Afropot has become a household name among Berlin’s African community.</p>
+
+    <div class="quote">
+      “Afropot is not just about food — it’s about pride, heritage, and community.” – Chef Guven
+    </div>
+
+    <a href="blog.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Blog</a>
+  </section>
+
+  <!-- ✅ FOOTER -->
+  <footer>
+    <p>© 2025 Afropot | Nigerian Food Ordering & Delivery Platform |
+      <a href="mailto:respectme060@gmail.com">respectme060@gmail.com</a>
+    </p>
+  </footer>
+
+</body>
+</html>

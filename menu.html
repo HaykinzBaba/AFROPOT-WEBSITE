@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Afropot Menu</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      background-color: #f5f9f4;
+      font-family: "Poppins", sans-serif;
+      color: #1a2d16;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ✅ NAVBAR */
+    .navbar {
+      background: #76b852;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      flex-wrap: wrap;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    }
+    .logo { font-size: 1.7rem; font-weight: 800; color: #1a2d16; }
+    .nav-right { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+    .nav-links { list-style: none; display: flex; gap: 1.2rem; margin: 0; padding: 0; }
+    .nav-links a {
+      text-decoration: none; color: #000; font-weight: 600;
+      padding: 6px 10px; border-radius: 6px; transition: 0.3s;
+    }
+    .nav-links a:hover { background: rgba(0,0,0,0.1); color: #fff; }
+    .nav-links a.active { background: #1a2d16; color: #fff; font-weight: 700; }
+    .cart-box {
+      background: white; color: #1a2d16; border-radius: 6px;
+      padding: 0.5rem 0.9rem; display: flex; align-items: center;
+      gap: 6px; font-weight: 600; cursor: pointer; transition: 0.3s;
+    }
+    .cart-box:hover { background: #8de264; }
+
+    /* ✅ SEARCH BAR */
+    .search-bar {
+      display: flex; align-items: center; margin: 1.2rem auto;
+      max-width: 430px; background: white; border-radius: 40px;
+      padding: 0.5rem 1rem; box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .search-bar input {
+      border: none; outline: none; flex: 1; padding: 0.5rem;
+      font-size: 1rem; color: #1a2d16;
+    }
+    .search-bar i { color: #1a2d16; margin-right: 8px; }
+
+    /* ✅ MENU SECTION */
+    .menu-section { padding: 1rem 0 2rem; text-align: center; }
+    .menu-section h2 { color: #1a2d16; font-size: 1.8rem; margin-bottom: 1rem; }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem; justify-items: center; padding: 0 1rem;
+    }
+    .menu-card {
+      background: #fff; border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      text-align: center; padding: 0.8rem;
+      transition: transform 0.3s; max-width: 240px;
+    }
+    .menu-card:hover { transform: translateY(-6px) scale(1.02); }
+    .menu-card img {
+      width: 100%; height: 150px; object-fit: cover; border-radius: 10px;
+    }
+    .menu-card h3 { font-size: 0.95rem; margin: 0.6rem 0 0.3rem; color: #0f3314; }
+    .price { font-weight: bold; color: #5f9e43; }
+    .add-btn {
+      background-color: #76b852; color: white; border: none;
+      padding: 6px 15px; border-radius: 8px; cursor: pointer;
+      margin-top: 5px; font-weight: 600; transition: 0.3s;
+    }
+    .add-btn:hover { background: #5f9e43; }
+
+    /* ✅ CART PANEL */
+    #cartPanel {
+      position: fixed; top: 0; right: -400px; width: 340px; height: 100%;
+      background: #fff; box-shadow: -4px 0 12px rgba(0,0,0,0.25);
+      padding: 1rem; transition: right 0.4s; overflow-y: auto; z-index: 9999;
+    }
+    #cartPanel.active { right: 0; }
+    #cartPanel h2 { text-align: center; color: #1a2d16; margin-bottom: 1rem; }
+    .cart-item {
+      display: flex; justify-content: space-between; align-items: center;
+      margin: 10px 0; border-bottom: 1px solid #eee; padding-bottom: 8px;
+    }
+    .qty-control { display: flex; align-items: center; gap: 6px; }
+    .qty-btn {
+      background: #76b852; border: none; color: white;
+      width: 24px; height: 24px; border-radius: 50%; cursor: pointer;
+    }
+    .cart-totals {
+      border-top: 2px solid #ddd; padding-top: 10px;
+      margin-top: 15px; text-align: right; font-size: 0.95rem;
+    }
+    .checkout-btn {
+      width: 100%; background: #1a2d16; color: white;
+      border: none; border-radius: 8px; padding: 12px;
+      font-weight: 600; cursor: pointer; margin-top: 15px;
+    }
+    .checkout-btn:hover { background: #2d4a22; }
+
+    /* ✅ FOOTER */
+    footer {
+      background: linear-gradient(180deg, #0f3314 0%, #1f5a2c 100%);
+      color: #fff; text-align: center; padding: 2rem 1rem; margin-top: 2rem;
+    }
+    .payment-logos { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 1rem; }
+    .payment-logos img {
+      width: 60px; background: #fff; padding: 6px; border-radius: 8px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2); transition: transform 0.3s;
+    }
+    .payment-logos img:hover { transform: scale(1.1); }
+
+    @media(max-width:600px){#cartPanel{width:90%;}}
+  </style>
+</head>
+<body>
+
+  <!-- ✅ NAVBAR -->
+  <header class="navbar">
+    <h1 class="logo">Afropot</h1>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html" class="active">Menu</a></li>
+        <li><a href="catering.html">Catering</a></li>
+        <li><a href="giftcard.html">Gift Card</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+      <div class="cart-box" id="cartBtn">
+        <i class="fa-solid fa-cart-shopping"></i> <span id="cartCount">0</span> items
+      </div>
+    </div>
+  </header>
+
+  <!-- ✅ SEARCH BAR -->
+  <div class="search-bar">
+    <i class="fa fa-search"></i>
+    <input type="text" id="searchBox" placeholder="Search for meals or drinks..." />
+  </div>
+
+  <!-- ✅ MAIN DISHES -->
+  <section class="menu-section">
+    <h2>Main Dishes</h2>
+    <div class="menu-grid">
+      <div class="menu-card" data-name="Jollof Rice with Fried Chicken" data-price="12.50"><img src="images/jollof_rice_with_fried_chicken.png"><h3>Jollof Rice with Fried Chicken</h3><p class="price">€12.50</p><button class="add-btn">Add to Cart</button></div>
+      <div class="menu-card" data-name="Egusi Soup with Fufu" data-price="14.00"><img src="images/egusi_soup_with_fufu.png"><h3>Egusi Soup with Fufu</h3><p class="price">€14.00</p><button class="add-btn">Add to Cart</button></div>
+      <div class="menu-card" data-name="Eba with Okro Soup" data-price="13.00"><img src="images/eba_with_okro_soup.png"><h3>Eba with Okro Soup</h3><p class="price">€13.00</p><button class="add-btn">Add to Cart</button></div>
+      <div class="menu-card" data-name="Fried Rice with Spicy Fried Fish" data-price="13.50"><img src="images/fried_rice_with_spicy_friedfish.png"><h3>Fried Rice with Spicy Fried Fish</h3><p class="price">€13.50</p><button class="add-btn">Add to Cart</button></div>
+      <div class="menu-card" data-name="Omotuo Groundnut Soup" data-price="14.00"><img src="images/omotuo_groundnut_soup(goat_smoked_salmon_tuna).png"><h3>Omotuo Groundnut Soup</h3><p class="price">€14.00</p><button class="add-btn">Add to Cart</button></div>
+      <div class="menu-card" data-name="Moi Moi" data-price="8.00"><img src="images/moi_moi.png"><h3>Moi Moi</h3><p class="price">€8.00</p><button class="add-btn">Add to Cart</button></div>
+      <div class="menu-card" data-name="Chicken Soup" data-price="10.00"><img src="images/chicken_soup.png"><h3>Chicken Soup</h3><p class="price">€10.00</p><button class="add-btn">Add to Cart</button></div>
+      <div class="menu-card" data-name="Rice with Ayamashe Stew" data-price="12.00"><img src="images/rice_with_ayamase_stew.png"><h3>Rice with Ayamashe Stew</h3><p class="price">€12.00</p><button class="add-btn">Add to Cart</button></div>
+      <div class="menu-card" data-name="Plain Rice" data-price="7.50"><img src="images/plain_rice.png"><h3>Plain Rice</h3><p class="price">€7.50</p><button class="add-btn">Add to Cart</button></div>
+      <div class="menu-card" data-name="Spaghetti Bolognese" data-price="11.00"><img src="images/spaghetti_bolognese.png"><h3>Spaghetti Bolognese</h3><p class="price">€11.00</p><button class="add-btn">Add to Cart</button></div>
+      <div class="menu-card" data-name="Suya Spicy Grilled Meat" data-price="9.50"><img src="images/suya_spicy_grilled_meat.png"><h3>Suya Spicy Grilled Meat</h3><p class="price">€9.50</p><button class="add-btn">Add to Cart</button></div>
+    </div>
+  </section>
+
+  <!-- ✅ DRINKS -->
+  <section class="menu-section">
+    <h2>Drinks & Beverages</h2>
+    <div class="menu-grid">
+      <div class="menu-card" data-name="Malta Guinness" data-price="3.00"><img src="images/malta_guinness.png"><h3>Malta Guinness</h3><p class="price">€3.00</p><button class="add-btn">Add to Cart</button></div>
+      <div class="menu-card" data-name="Coca-Cola 0.5L" data-price="2.50"><img src="images/can_coke_0.5ltrs.png"><h3>Coca-Cola 0.5L</h3><p class="price">€2.50</p><button class="add-btn">Add to Cart</button></div>
+      <div class="menu-card" data-name="Coca-Cola 1.5L" data-price="3.00"><img src="images/coke_1.5Ltr.png"><h3>Coca-Cola 1.5L</h3><p class="price">€3.00</p><button class="add-btn">Add to Cart</button></div>
+      <div class="menu-card" data-name="Fanta" data-price="2.50"><img src="images/fanta.png"><h3>Fanta</h3><p class="price">€2.50</p><button class="add-btn">Add to Cart</button></div>
+      <div class="menu-card" data-name="Sprite 0.5L" data-price="2.50"><img src="images/sprite_0.5Ltrs.png"><h3>Sprite 0.5L</h3><p class="price">€2.50</p><button class="add-btn">Add to Cart</button></div>
+      <div class="menu-card" data-name="Alvaro" data-price="2.80"><img src="images/alvaro.png"><h3>Alvaro</h3><p class="price">€2.80</p><button class="add-btn">Add to Cart</button></div>
+      <div class="menu-card" data-name="Ceres Juice" data-price="3.00"><img src="images/ceres.png"><h3>Ceres Juice</h3><p class="price">€3.00</p><button class="add-btn">Add to Cart</button></div>
+      <div class="menu-card" data-name="Vita Milk" data-price="3.00"><img src="images/vita_milk.png"><h3>Vita Milk</h3><p class="price">€3.00</p><button class="add-btn">Add to Cart</button></div>
+      <div class="menu-card" data-name="Don Simon" data-price="3.50"><img src="images/don_simon.png"><h3>Don Simon</h3><p class="price">€3.50</p><button class="add-btn">Add to Cart</button></div>
+    </div>
+  </section>
+
+  <!-- ✅ CART PANEL -->
+  <div id="cartPanel">
+    <h2>Your Cart</h2>
+    <div id="cartItems"></div>
+    <div class="cart-totals">
+      <p>Subtotal: €<span id="subTotal">0.00</span></p>
+      <p>VAT (7%): €<span id="vatTotal">0.00</span></p>
+      <p><strong>Total: €<span id="cartTotal">0.00</span></strong></p>
+    </div>
+    <button class="checkout-btn" onclick="window.location.href='checkout.html'">Go to Checkout</button>
+  </div>
+
+  <!-- ✅ FOOTER -->
+  <footer>
+    <div class="payment-logos">
+      <img src="images/visa.png" alt="Visa">
+      <img src="images/mastercard.png" alt="Mastercard">
+      <img src="images/google_pay.png" alt="Google Pay">
+      <img src="images/apple_pay.png" alt="Apple Pay">
+    </div>
+    <p>© 2025 Afropot | Nigerian Food Ordering & Delivery Platform | All Rights Reserved.</p>
+  </footer>
+
+  <!-- ✅ SCRIPT -->
+  <script>
+    const cartBtn = document.getElementById('cartBtn');
+    const cartPanel = document.getElementById('cartPanel');
+    const cartItems = document.getElementById('cartItems');
+    const cartCount = document.getElementById('cartCount');
+    const subTotal = document.getElementById('subTotal');
+    const vatTotal = document.getElementById('vatTotal');
+    const cartTotal = document.getElementById('cartTotal');
+    let cart = JSON.parse(localStorage.getItem('afropotCart')) || [];
+
+    cartBtn.addEventListener('click', () => cartPanel.classList.toggle('active'));
+
+    document.querySelectorAll('.add-btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        const card = e.target.closest('.menu-card');
+        const name = card.dataset.name;
+        const price = parseFloat(card.dataset.price);
+        const existing = cart.find(i => i.name === name);
+        if (existing) existing.qty++;
+        else cart.push({ name, price, qty: 1 });
+        saveAndUpdate();
+      });
+    });
+
+    function updateCart() {
+      cartItems.innerHTML = '';
+      let subtotal = 0;
+      cart.forEach((item, index) => {
+        subtotal += item.price * item.qty;
+        cartItems.innerHTML += `
+          <div class="cart-item">
+            <div>${item.name}</div>
+            <div class="qty-control">
+              <button class="qty-btn" onclick="changeQty(${index},-1)">−</button>
+              <span>${item.qty}</span>
+              <button class="qty-btn" onclick="changeQty(${index},1)">+</button>
+            </div>
+            <div>€${(item.price * item.qty).toFixed(2)}</div>
+          </div>`;
+      });
+      const vat = subtotal * 0.07;
+      const total = subtotal + vat;
+      subTotal.textContent = subtotal.toFixed(2);
+      vatTotal.textContent = vat.toFixed(2);
+      cartTotal.textContent = total.toFixed(2);
+      cartCount.textContent = cart.reduce((s, i) => s + i.qty, 0);
+    }
+
+    function changeQty(i, d) {
+      cart[i].qty += d;
+      if (cart[i].qty <= 0) cart.splice(i, 1);
+      saveAndUpdate();
+    }
+
+    function saveAndUpdate() {
+      localStorage.setItem('afropotCart', JSON.stringify(cart));
+      updateCart();
+    }
+
+    updateCart();
+  </script>
+</body>
+</html>

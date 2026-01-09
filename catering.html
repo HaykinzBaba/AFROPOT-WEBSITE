@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catering | Afropot</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      background: #f5f9f4;
+      color: #1a2d16;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      background: #76b852;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+      flex-wrap: wrap;
+    }
+    .logo {font-size: 1.8rem;font-weight: 700;color: #1a2d16;}
+    .nav-links {list-style: none;display: flex;gap: 1.5rem;margin: 0;padding: 0;}
+    .nav-links a {
+      text-decoration: none;color: #000;font-weight: 600;
+      padding: 6px 12px;border-radius: 6px;transition: all 0.3s ease;
+    }
+    .nav-links a:hover {background: rgba(26,45,22,0.2);color: #fff;}
+    .nav-links a.active {background: #1a2d16;color: #fff;font-weight: 700;}
+
+    /* ===== HERO ===== */
+    .catering-hero {
+      background: linear-gradient(180deg, #eaf8e5 0%, #f5f9f4 100%);
+      text-align: center;
+      padding: 4rem 1rem 3rem;
+      animation: fadeIn 1.2s ease;
+    }
+    .catering-hero h2 {font-size: 2.3rem;color: #0f3314;margin-bottom: 0.8rem;}
+    .catering-hero p {color: #2d4a22;font-size: 1.05rem;max-width: 700px;margin: 0 auto;}
+
+    /* ===== CATERING GRID ===== */
+    .catering-container {
+      max-width: 1100px;
+      margin: 3rem auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 0 1rem;
+    }
+    .catering-card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+      overflow: hidden;
+      text-align: center;
+      transition: all 0.4s ease;
+    }
+    .catering-card:hover {transform: translateY(-6px) scale(1.02);}
+    .catering-card img {width: 100%;height: 220px;object-fit: cover;}
+    .catering-card-content {padding: 1.5rem;}
+    .catering-card-content h3 {color: #0f3314;margin-bottom: 0.6rem;font-size: 1.3rem;}
+    .price {font-size: 1.1rem;font-weight: 700;color: #5f9e43;margin-bottom: 0.8rem;}
+    .catering-card-content p {color: #333;font-size: 0.95rem;margin-bottom: 1rem;}
+    .btn {
+      display: inline-block;background: #76b852;color: #fff;
+      padding: 0.7rem 1.3rem;border-radius: 8px;text-decoration: none;
+      font-weight: 600;transition: background 0.3s ease;
+    }
+    .btn:hover {background: #5f9e43;}
+
+    /* ===== POPUP ===== */
+    .popup-overlay {
+      position: fixed;top: 0;left: 0;width: 100%;height: 100%;
+      background: rgba(0,0,0,0.6);display: none;
+      justify-content: center;align-items: center;z-index: 2000;
+    }
+    .popup {
+      background: #fff;border-radius: 12px;
+      padding: 2rem;width: 90%;max-width: 450px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      animation: fadeIn 0.4s ease;position: relative;
+    }
+    .popup h3 {text-align:center;color:#0f3314;margin-bottom:1rem;}
+    .popup label {display:block;margin:8px 0 4px;font-weight:600;color:#0f3314;}
+    .popup input {
+      width:100%;padding:10px;margin-bottom:12px;
+      border:1px solid #ccc;border-radius:8px;
+      font-family:'Poppins';font-size:0.95rem;
+    }
+    .popup button {
+      width:100%;background:#76b852;color:#fff;
+      border:none;border-radius:8px;padding:12px;
+      font-weight:600;font-size:1rem;cursor:pointer;
+      transition:background 0.3s ease;
+    }
+    .popup button:hover {background:#5f9e43;}
+    .close-btn {
+      position:absolute;top:15px;right:20px;font-size:22px;color:#333;cursor:pointer;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: linear-gradient(180deg, #0f3314 0%, #1f5a2c 100%);
+      color: white;text-align: center;
+      padding: 3rem 1rem 2rem;margin-top: 4rem;
+    }
+    footer h3 {color: #8de264;margin-bottom: 1rem;}
+    footer p, footer a {color: #fff;font-size: 0.95rem;text-decoration: none;}
+    footer a:hover {color: #8de264;}
+    footer i {margin-right: 8px;color: #8de264;}
+
+    @keyframes fadeIn {from{opacity:0;transform:scale(0.95);}to{opacity:1;transform:scale(1);}}
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <h1 class="logo">Afropot</h1>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="catering.html" class="active">Catering</a></li>
+      <li><a href="giftcard.html">Gift Card</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
+  </header>
+
+  <!-- HERO -->
+  <section class="catering-hero">
+    <h2>🎉 Catering Services for Every Occasion</h2>
+    <p>Afropot provides catering for weddings, birthdays, conferences, and private events. We deliver authentic Nigerian meals that delight your guests and bring the true taste of home to your celebration.</p>
+  </section>
+
+  <!-- CATERING CARDS -->
+  <section class="catering-container">
+    <div class="catering-card">
+      <img src="images/catering1.jpg" alt="Party Catering">
+      <div class="catering-card-content">
+        <h3>Party & Event Catering</h3>
+        <div class="price">From €150 per event</div>
+        <p>Perfect for birthdays, weddings, and celebrations. We bring delicious Nigerian cuisine to your guests.</p>
+        <button class="btn" onclick="openPopup('Party & Event Catering',150)">Book Now</button>
+      </div>
+    </div>
+
+    <div class="catering-card">
+      <img src="images/catering2.jpg" alt="Corporate Catering">
+      <div class="catering-card-content">
+        <h3>Corporate Catering</h3>
+        <div class="price">From €200 per event</div>
+        <p>Ideal for office meetings and corporate events. Impress your team with rich, flavorful Nigerian meals.</p>
+        <button class="btn" onclick="openPopup('Corporate Catering',200)">Book Now</button>
+      </div>
+    </div>
+
+    <div class="catering-card">
+      <img src="images/catering3.jpg" alt="Special Orders">
+      <div class="catering-card-content">
+        <h3>Special Orders</h3>
+        <div class="price">From €120 per order</div>
+        <p>Custom packages for your needs – choose from soups, stews, rice dishes, and more.</p>
+        <button class="btn" onclick="openPopup('Special Orders',120)">Book Now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- POPUP -->
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="popup">
+      <span class="close-btn" onclick="closePopup()">✖</span>
+      <h3>Book Catering</h3>
+      <form id="cateringForm">
+        <label>Service Type</label>
+        <input type="text" id="eventType" readonly />
+
+        <label>Full Name</label>
+        <input type="text" id="name" placeholder="Your Name" required />
+
+        <label>Email</label>
+        <input type="email" id="email" placeholder="you@example.com" required />
+
+        <label>Event Date</label>
+        <input type="date" id="eventDate" required />
+
+        <label>Total (€)</label>
+        <input type="number" id="eventPrice" readonly />
+
+        <button type="submit">Confirm & Pay</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <h3>Contact Our Catering Team</h3>
+    <p><i class="fa-solid fa-envelope"></i> <a href="mailto:respectme060@gmail.com">respectme060@gmail.com</a></p>
+    <p><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/233556908606" target="_blank">Chat with us</a></p>
+    <p><i class="fa-solid fa-phone"></i> <a href="tel:+4915210783298">+49 1521 0783298</a></p>
+    <p><i class="fa-solid fa-location-dot"></i>
+      <a href="https://www.google.com/maps?q=Konrad-Zuse-Ring+11,+14469+Potsdam,+Germany" target="_blank">Konrad-Zuse-Ring 11, 14469 Potsdam, Germany</a>
+    </p>
+    <p style="margin-top:1rem;font-size:0.9rem;">© 2025 Afropot | Nigerian Food Ordering & Delivery Platform | All Rights Reserved.</p>
+  </footer>
+
+  <!-- STRIPE -->
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    function openPopup(type, price){
+      document.getElementById("popupOverlay").style.display="flex";
+      document.getElementById("eventType").value=type;
+      document.getElementById("eventPrice").value=price;
+    }
+    function closePopup(){document.getElementById("popupOverlay").style.display="none";}
+
+    document.getElementById("cateringForm").addEventListener("submit", async function(e){
+      e.preventDefault();
+      const data={
+        name:document.getElementById("name").value,
+        email:document.getElementById("email").value,
+        eventType:document.getElementById("eventType").value,
+        date:document.getElementById("eventDate").value,
+        price:document.getElementById("eventPrice").value
+      };
+
+      const res=await fetch("http://localhost:4242/create-booking-session",{
+        method:"POST",headers:{"Content-Type":"application/json"},
+        body:JSON.stringify(data)
+      });
+      const session=await res.json();
+      if(session.id){
+        const stripe=Stripe("pk_test_51SSozmAi0kLeGO9eT7PNfKYq8WD5pFQa7RvxWpyGBNWtljSRb7PPXCCv1mdaOfosDyDC4dcLQKR7qDn6mcPpSpfT00tRZOtPJQ");
+        stripe.redirectToCheckout({sessionId:session.id});
+      }else alert("❌ Could not create booking session. Please try again.");
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Afropot – Nigerian Food Ordering & Delivery Platform</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f9f4;
+      color: #1a2d16;
+      overflow-x: hidden;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      background: #76b852 !important;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1a2d16 !important;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: #000 !important;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(0, 0, 0, 0.1);
+      color: #fff !important;
+      transform: translateY(-2px);
+    }
+
+    .nav-links a.active {
+      background-color: #1a2d16 !important;
+      color: #fff !important;
+      font-weight: 700;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    .hero-text {
+      max-width: 550px;
+      margin-right: 2rem;
+    }
+
+    .hero-text h2 {
+      font-size: 2.3rem;
+      color: #0f3314;
+      margin-bottom: 1rem;
+    }
+
+    .hero-text p {
+      font-size: 1rem;
+      color: #333;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-btn {
+      background: #8de264;
+      color: #0f3314;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .hero-btn:hover {
+      background: #a4f27e;
+    }
+
+    .hero-img img {
+      max-width: 350px;
+      border-radius: 50%;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: linear-gradient(180deg, #0f3314 0%, #1f5a2c 100%);
+      color: #fff;
+      padding: 2.5rem 1.5rem;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-section {
+      flex: 1;
+      min-width: 230px;
+    }
+
+    .footer-section h3 {
+      color: #8de264;
+      margin-bottom: 1rem;
+    }
+
+    .footer-section a,
+    .footer-section p {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .footer-section a:hover {
+      color: #8de264;
+      text-decoration: underline;
+    }
+
+    iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
+      border-radius: 8px;
+    }
+
+    .payment-logos {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .payment-logos img {
+      width: 70px;
+      background: #fff;
+      padding: 8px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s;
+    }
+
+    .payment-logos img:hover {
+      transform: scale(1.1);
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 1.5rem;
+      color: #ccc;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      padding-top: 1rem;
+    }
+
+    /* ===== FLOATING BUTTONS ===== */
+    .floating-buttons {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      z-index: 9999;
+    }
+
+    .floating-buttons.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .floating-btn {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 55px;
+      font-size: 26px;
+      color: white;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .chatbot-float { background: #8de264; color: #0f3314; }
+    .whatsapp-float { background: #25d366; }
+
+    .floating-btn:hover { transform: scale(1.15); }
+
+    /* ===== CHATBOT POPUP ===== */
+    .chatbot-popup {
+      position: fixed;
+      bottom: 100px;
+      right: 25px;
+      width: 320px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 10000;
+    }
+
+    .chatbot-header {
+      background: #76b852;
+      color: #fff;
+      padding: 0.8rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+    }
+
+    .chatbot-body {
+      padding: 1rem;
+      height: 250px;
+      overflow-y: auto;
+      background: #f9fff8;
+      color: #333;
+    }
+
+    .chatbot-input {
+      display: flex;
+      padding: 0.6rem;
+      border-top: 1px solid #ddd;
+      background: #fff;
+    }
+
+    .chatbot-input input {
+      flex: 1;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      outline: none;
+    }
+
+    .chatbot-input button {
+      background: #76b852;
+      border: none;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      margin-left: 0.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .chatbot-input button:hover { background: #5f9e43; }
+
+    @media (max-width: 768px) {
+      .hero { flex-direction: column; }
+      .hero-text { margin-right: 0; margin-bottom: 2rem; }
+      .chatbot-popup { width: 90%; right: 5%; }
+      .footer-container { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ✅ UPDATED NAVBAR -->
+  <header class="navbar">
+    <h1 class="logo">Afropot</h1>
+    <ul class="nav-links">
+      <li><a class="active" href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="catering.html">Catering</a></li>
+      <li><a href="giftcard.html">Gift Card</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="login.html" class="account-link"><i class="fa-solid fa-user"></i> Login</a></li>
+    </ul>
+  </header>
+
+  <!-- ✅ HERO SECTION -->
+  <section class="hero">
+    <div class="hero-text">
+      <h2>Afropot – Nigerian Food Ordering & Delivery Platform</h2>
+      <p>Enjoy authentic Nigerian dishes freshly prepared and delivered across Potsdam & Berlin.</p>
+      <button class="hero-btn" onclick="window.location.href='menu.html'">Order Now</button>
+    </div>
+    <div class="hero-img">
+      <img src="images/afropot_logo.png" alt="Afropot Logo" />
+    </div>
+  </section>
+
+  <!-- ✅ FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p><i class="fa-solid fa-envelope"></i> <a href="mailto:respectme060@gmail.com">respectme060@gmail.com</a></p>
+        <p><i class="fa-solid fa-phone"></i> <a href="tel:+4915210783298">+49 1521 0783298</a></p>
+        <p><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/233556908606" target="_blank">Chat with us</a></p>
+        <p><i class="fa-solid fa-location-dot"></i>
+          <a href="https://www.google.com/maps?q=Konrad-Zuse-Ring+11,+14469+Potsdam,+Germany" target="_blank">
+            Konrad-Zuse-Ring 11, 14469 Potsdam, Germany
+          </a>
+        </p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <p><a href="menu.html">Menu</a></p>
+        <p><a href="catering.html">Catering</a></p>
+        <p><a href="giftcard.html">Gift Cards</a></p>
+        <p><a href="contact.html">Contact Page</a></p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Learn More</h3>
+        <p><a href="howto.html">How-To Videos</a></p>
+        <p><a href="blog.html">Afropot Blog</a></p>
+        <p><a href="faq.html">FAQ</a></p>
+        <p><a href="about.html">About Us</a></p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Find Us</h3>
+        <iframe src="https://www.google.com/maps?q=Konrad-Zuse-Ring+11,+14469+Potsdam,+Germany&output=embed" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <div class="payment-logos">
+      <img src="images/visa.png" alt="Visa">
+      <img src="images/mastercard.png" alt="Mastercard">
+      <img src="images/google_pay.png" alt="Google Pay">
+      <img src="images/apple_pay.png" alt="Apple Pay">
+    </div>
+
+    <p class="footer-note">
+      © 2025 Afropot | Nigerian Food Ordering & Delivery Platform | All Rights Reserved.
+    </p>
+  </footer>
+
+  <!-- ✅ FLOATING BUTTONS + CHATBOT -->
+  <div class="floating-buttons" id="floatBtns">
+    <div class="floating-btn chatbot-float" id="chatbotBtn"><i class="fas fa-robot"></i></div>
+    <a href="https://wa.me/233556908606?text=Hello%20Afropot%20👋" target="_blank" class="floating-btn whatsapp-float" title="Chat with us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  </div>
+
+  <div class="chatbot-popup" id="chatbotPopup">
+    <div class="chatbot-header">Afropot Assistant 🤖<span id="closeChat" style="cursor:pointer;">✖</span></div>
+    <div class="chatbot-body" id="chatMessages">
+      <p><strong>Afropot Bot:</strong> 👋 Welcome to Afropot! I'm your friendly assistant.</p>
+      <p>How can I help you today?</p>
+    </div>
+    <div class="chatbot-input">
+      <input type="text" id="userMessage" placeholder="Type your message..." />
+      <button id="sendMsg">Send</button>
+    </div>
+  </div>
+
+  <script>
+    const floatBtns = document.getElementById("floatBtns");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 100) floatBtns.classList.add("show");
+      else floatBtns.classList.remove("show");
+    });
+
+    const chatbotBtn = document.getElementById("chatbotBtn");
+    const chatbotPopup = document.getElementById("chatbotPopup");
+    const closeChat = document.getElementById("closeChat");
+    const sendBtn = document.getElementById("sendMsg");
+    const userInput = document.getElementById("userMessage");
+    const chatMessages = document.getElementById("chatMessages");
+
+    chatbotBtn.addEventListener("click", () => chatbotPopup.style.display = "flex");
+    closeChat.addEventListener("click", () => chatbotPopup.style.display = "none");
+
+    sendBtn.addEventListener("click", sendMessage);
+    userInput.addEventListener("keypress", e => { if (e.key === "Enter") sendMessage(); });
+
+    function showTypingDots() {
+      const typingDiv = document.createElement("div");
+      typingDiv.className = "typing-dots";
+      typingDiv.innerHTML = `<span class='dot'></span><span class='dot'></span><span class='dot'></span>`;
+      chatMessages.appendChild(typingDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      return typingDiv;
+    }
+
+    function sendMessage() {
+      const msg = userInput.value.trim();
+      if (!msg) return;
+      chatMessages.innerHTML += `<p><strong>You:</strong> ${msg}</p>`;
+      userInput.value = "";
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      const typingDiv = showTypingDots();
+
+      setTimeout(() => {
+        typingDiv.remove();
+        let reply = `<strong>Afropot Bot:</strong> Thanks for reaching out! Check our 
+        <a href='menu.html' style='color:#2a8f46;font-weight:bold;'>Menu</a> for delicious meals 🍲`;
+        const lowerMsg = msg.toLowerCase();
+        if (lowerMsg.includes("hello") || lowerMsg.includes("hi")) {
+          reply = `<strong>Afropot Bot:</strong> 👋 Hi there! How can I assist you today?`;
+        } else if (lowerMsg.includes("order")) {
+          reply = `<strong>Afropot Bot:</strong> 📦 Track your order → <a href='track-order.html' style='color:#2a8f46;font-weight:bold;'>here</a>`;
+        } else if (lowerMsg.includes("thanks")) {
+          reply = `<strong>Afropot Bot:</strong> 💚 You're most welcome!`;
+        }
+        chatMessages.innerHTML += `<p>${reply}</p>`;
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }, 1300);
+    }
+  </script>
+</body>
+</html>

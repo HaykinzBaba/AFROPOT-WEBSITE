@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Afropot – Nigerian Food Ordering & Delivery Platform</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      background: #f5f9f4;
+      color: #1a2d16;
+      line-height: 1.6;
+    }
+
+    /* ===== NAVBAR ===== */
+    header.navbar {
+      background-color: #76b852;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+    }
+
+    .navbar-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.9rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1a2d16;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: #000;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(0,0,0,0.1);
+      color: #fff !important;
+    }
+
+    .nav-links a.active {
+      background-color: #1a2d16;
+      color: #fff !important;
+    }
+
+    .cart-box {
+      background: #fff;
+      color: #1a2d16;
+      padding: 6px 14px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .cart-box:hover {
+      background-color: #8de264;
+      color: #0f3314;
+    }
+
+    /* ===== HERO ===== */
+    .about-hero {
+      background: linear-gradient(120deg, #76b852 0%, #8de264 100%);
+      color: white;
+      text-align: center;
+      padding: 3rem 1.5rem;
+    }
+
+    .about-hero h1 {
+      font-size: 2.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .about-hero p {
+      color: #f2fdf0;
+      font-size: 1.05rem;
+    }
+
+    /* ===== CONTENT ===== */
+    .about-section {
+      max-width: 1000px;
+      margin: 3rem auto;
+      background: #fff;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .about-section h2 {
+      color: #0f3314;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .about-section p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .about-section img {
+      width: 100%;
+      border-radius: 10px;
+      margin: 1.5rem 0;
+      object-fit: cover;
+    }
+
+    .highlight-box {
+      background: #eafde3;
+      padding: 1rem;
+      border-left: 5px solid #76b852;
+      border-radius: 8px;
+      font-weight: 500;
+      color: #0f3314;
+      margin: 2rem 0;
+    }
+
+    /* ===== TEAM SECTION ===== */
+    .team-section {
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .team-section h2 {
+      color: #0f3314;
+    }
+
+    .team-cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .team-card {
+      background: #fff;
+      padding: 1.2rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      width: 270px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+
+    .team-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    .team-card img {
+      width: 100%;
+      height: 190px;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+
+    .team-card h3 {
+      color: #0f3314;
+      margin-bottom: 0.3rem;
+    }
+
+    .team-card p {
+      color: #555;
+      font-size: 0.9rem;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: linear-gradient(180deg, #0f3314 0%, #1f5a2c 100%);
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      margin-top: 3rem;
+    }
+
+    footer a {
+      color: #8de264;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .about-section {
+        padding: 1.5rem;
+      }
+      .team-cards {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ✅ NAVBAR -->
+  <header class="navbar">
+    <div class="navbar-container">
+      <h1 class="logo">Afropot</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="catering.html">Catering</a></li>
+        <li><a href="giftcard.html">Gift Card</a></li>
+        <li><a href="delivery.html">Delivery</a></li>
+        <li><a href="track-order.html">Track Order</a></li>
+        <li><a class="active" href="about.html">About</a></li>
+      </ul>
+      <div class="cart-box"><i class="fa-solid fa-cart-shopping"></i> My Orders</div>
+    </div>
+  </header>
+
+  <!-- 🌍 HERO -->
+  <section class="about-hero">
+    <h1>About Afropot</h1>
+    <p>Bringing authentic Nigerian taste to your table — fresh, fast, and full of love.</p>
+  </section>
+
+  <!-- 🥘 MAIN CONTENT -->
+  <section class="about-section">
+    <h2>Who We Are</h2>
+    <p>Afropot is more than just food — it's an experience. We are a proudly Nigerian food ordering and delivery platform based in Potsdam, Germany, created to share the vibrant taste of Africa with everyone. Whether you're craving spicy Jollof Rice, creamy Egusi, or crispy plantain, we deliver it hot and fresh to your door.</p>
+
+    <img src="https://images.unsplash.com/photo-1604909053119-3c4baf8c5f52?auto=format&fit=crop&w=1000&q=80" alt="Afropot kitchen">
+
+    <h2>Our Mission</h2>
+    <p>Our mission is to bridge cultures through food by providing top-quality Nigerian cuisine made with passion and authenticity. We strive to make everyone feel at home — one meal at a time.</p>
+
+    <div class="highlight-box">
+      💚 <strong>We believe food connects people.</strong> Every Afropot meal tells a story of culture, love, and heritage — bringing you closer to Nigeria with every bite.
+    </div>
+
+    <h2>Our Story</h2>
+    <p>Founded by Chef Guven in 2025, Afropot started as a dream to bring the flavours of his homeland to Berlin and Potsdam. Today, Afropot proudly serves hundreds of customers weekly, keeping Nigerian traditions alive while embracing modern delivery technology.</p>
+
+    <img src="https://images.unsplash.com/photo-1618354691373-d851c0fdaef3?auto=format&fit=crop&w=1000&q=80" alt="Afropot delivery team">
+
+    <div class="team-section">
+      <h2>Meet the Team</h2>
+      <p>The heart of Afropot beats through the amazing people who make it happen every day.</p>
+
+      <div class="team-cards">
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=900&q=80" alt="Chef Guven">
+          <h3>Chef Guven</h3>
+          <p>Founder & Head Chef</p>
+        </div>
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" alt="Delivery Riders">
+          <h3>Delivery Crew</h3>
+          <p>Ensuring every meal reaches you fresh and on time.</p>
+        </div>
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=900&q=80" alt="Customer Support">
+          <h3>Support Team</h3>
+          <p>Always ready to assist our customers with care and smiles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ FOOTER -->
+  <footer>
+    <p>© 2025 Afropot | Nigerian Food Ordering & Delivery Platform |
+      <a href="mailto:respectme060@gmail.com">respectme060@gmail.com</a>
+    </p>
+  </footer>
+</body>
+</html>

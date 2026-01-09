@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How We Deliver Fresh Meals – Every Time! | Afropot Blog</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      background: #f5f9f4;
+      color: #1a2d16;
+      line-height: 1.6;
+    }
+
+    /* ===== NAVBAR ===== */
+    header.navbar {
+      background-color: #76b852;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+    }
+
+    .navbar-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.9rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: nowrap;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1a2d16;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: #000;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(0,0,0,0.1);
+      color: #fff !important;
+    }
+
+    .nav-links a.active {
+      background-color: #1a2d16;
+      color: #fff !important;
+    }
+
+    .cart-box {
+      background: #fff;
+      color: #1a2d16;
+      padding: 6px 14px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .cart-box:hover {
+      background-color: #8de264;
+      color: #0f3314;
+    }
+
+    /* ===== HERO ===== */
+    .blog-hero {
+      background: linear-gradient(120deg, #76b852 0%, #8de264 100%);
+      text-align: center;
+      padding: 3rem 1.5rem;
+      color: white;
+    }
+
+    .blog-hero h1 {
+      font-size: 2.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .blog-hero p {
+      font-size: 1.05rem;
+      color: #f2fdf0;
+    }
+
+    /* ===== CONTENT ===== */
+    .blog-content {
+      max-width: 900px;
+      margin: 3rem auto;
+      background: #fff;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .blog-content img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+    }
+
+    .blog-content h2 {
+      color: #0f3314;
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .blog-content p {
+      color: #333;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .highlight {
+      background: #eafde3;
+      padding: 0.6rem 1rem;
+      border-left: 5px solid #76b852;
+      border-radius: 6px;
+      font-weight: 500;
+      color: #0f3314;
+      margin: 1.5rem 0;
+    }
+
+    /* ===== BUTTON ===== */
+    .back-btn {
+      display: inline-block;
+      background: #76b852;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 2rem;
+      transition: background 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background: #5f9e43;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: linear-gradient(180deg, #0f3314 0%, #1f5a2c 100%);
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      margin-top: 3rem;
+    }
+
+    footer a {
+      color: #8de264;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .blog-content {
+        padding: 1.5rem;
+      }
+      .blog-hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ✅ NAVBAR -->
+  <header class="navbar">
+    <div class="navbar-container">
+      <h1 class="logo">Afropot</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="catering.html">Catering</a></li>
+        <li><a href="giftcard.html">Gift Card</a></li>
+        <li><a href="delivery.html">Delivery</a></li>
+        <li><a href="track-order.html">Track Order</a></li>
+        <li><a class="active" href="blog.html">Blog</a></li>
+      </ul>
+      <div class="cart-box"><i class="fa-solid fa-cart-shopping"></i> My Orders</div>
+    </div>
+  </header>
+
+  <!-- 📰 HERO -->
+  <section class="blog-hero">
+    <h1>How We Deliver Fresh Meals – Every Time!</h1>
+    <p>See how Afropot ensures your food stays hot, fresh, and full of flavour from kitchen to doorstep.</p>
+  </section>
+
+  <!-- 🍲 BLOG CONTENT -->
+  <section class="blog-content">
+    <img src="images/delivery-team.jpg" alt="Afropot delivery team">
+
+    <p>At Afropot, freshness isn’t just a promise — it’s our passion. From the moment your order is placed to the second it reaches your hands, every step is carefully designed to maintain the authentic taste of Nigerian cuisine.</p>
+
+    <h2>1️⃣ Fresh Ingredients, Every Morning</h2>
+    <p>Our chefs begin each day by sourcing farm-fresh produce, premium meats, and the finest spices. We partner with trusted local suppliers to ensure every ingredient meets our freshness and quality standards.</p>
+
+    <h2>2️⃣ Cooked to Order</h2>
+    <p>Unlike pre-made meals, every Afropot order is cooked after you confirm it. This means your Jollof, Egusi, or Suya comes straight from the pot — piping hot, flavourful, and made with care.</p>
+
+    <h2>3️⃣ Sealed with Safety & Love</h2>
+    <p>All meals are sealed in eco-friendly, insulated packaging to lock in warmth and aroma while keeping your meal safe from contamination. Every package is hand-checked before dispatch.</p>
+
+    <h2>4️⃣ Smart Delivery System</h2>
+    <p>We use real-time GPS tracking to connect customers with our riders. You can track your order directly through our <a href="track-order.html" style="color:#2a8f46;font-weight:bold;">Track My Order</a> page for updates every step of the way.</p>
+
+    <div class="highlight">
+      🚴‍♂️ <strong>Fun Fact:</strong> Afropot riders follow “Fresh Route Zones” — optimised delivery paths that keep travel time short, ensuring your food arrives hot and delicious.
+    </div>
+
+    <h2>5️⃣ Feedback that Fuels Us</h2>
+    <p>We love hearing from our customers! Every review helps us grow, improve, and continue delivering happiness in every bite. Whether it’s your first or tenth order, we strive to exceed expectations.</p>
+
+    <a href="blog.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Blog</a>
+  </section>
+
+  <!-- ✅ FOOTER -->
+  <footer>
+    <p>© 2025 Afropot | Nigerian Food Ordering & Delivery Platform |
+      <a href="mailto:respectme060@gmail.com">respectme060@gmail.com</a>
+    </p>
+  </footer>
+
+</body>
+</html>

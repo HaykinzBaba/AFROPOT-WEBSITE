@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Success | Afropot</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(180deg, #f5f9f4 0%, #eaf8e5 100%);
+      color: #1a2d16;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .success-box {
+      background: #fff;
+      padding: 3rem 3.5rem;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      animation: fadeIn 0.8s ease;
+    }
+
+    .success-box i {
+      font-size: 3rem;
+      color: #4CAF50;
+      margin-bottom: 1rem;
+    }
+
+    .success-box h2 {
+      color: #0f3314;
+      margin-bottom: 0.5rem;
+    }
+
+    .success-box p {
+      color: #444;
+      margin-bottom: 2rem;
+    }
+
+    .success-box a {
+      background: #76b852;
+      color: white;
+      text-decoration: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .success-box a:hover {
+      background: #5f9e43;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="success-box">
+    <i class="fa-solid fa-circle-check"></i>
+    <h2>Payment Successful!</h2>
+    <p>✅ Thank you for your order! Your payment was processed successfully.</p>
+    <a href="index.html">Return to Home</a>
+  </div>
+</body>
+</html>

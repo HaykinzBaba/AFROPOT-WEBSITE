@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Afropot Blog | Nigerian Food Ordering & Delivery Platform</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      background: #f5f9f4;
+      color: #1a2d16;
+      overflow-x: hidden;
+    }
+
+    /* ===== NAVBAR ===== */
+    header.navbar {
+      background-color: #76b852;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+    }
+
+    .navbar-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.9rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: nowrap;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1a2d16;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: #000;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(0,0,0,0.1);
+      color: #fff !important;
+    }
+
+    .nav-links a.active {
+      background-color: #1a2d16;
+      color: #fff !important;
+    }
+
+    .cart-box {
+      background: #fff;
+      color: #1a2d16;
+      padding: 6px 14px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .cart-box:hover {
+      background-color: #8de264;
+      color: #0f3314;
+    }
+
+    /* ===== BLOG HERO ===== */
+    .blog-hero {
+      background: linear-gradient(120deg, #76b852 0%, #8de264 100%);
+      text-align: center;
+      padding: 3rem 1.5rem;
+      color: white;
+    }
+
+    .blog-hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .blog-hero p {
+      font-size: 1.1rem;
+      color: #f2fdf0;
+    }
+
+    /* ===== BLOG GRID ===== */
+    .blog-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+
+    .blog-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-6px);
+    }
+
+    /* Colored header banner instead of image */
+    .blog-banner {
+      height: 180px;
+      background: linear-gradient(135deg, #76b852 0%, #8de264 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #fff;
+      text-transform: capitalize;
+      letter-spacing: 0.5px;
+    }
+
+    .blog-content {
+      padding: 1.5rem;
+    }
+
+    .blog-content h3 {
+      color: #0f3314;
+      margin-bottom: 0.6rem;
+    }
+
+    .blog-content p {
+      color: #444;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .read-more {
+      display: inline-block;
+      background: #8de264;
+      color: #0f3314;
+      padding: 10px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .read-more:hover {
+      background: #a5f28b;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: linear-gradient(180deg, #0f3314 0%, #1f5a2c 100%);
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      margin-top: 3rem;
+    }
+
+    footer a {
+      color: #8de264;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ✅ NAVBAR -->
+  <header class="navbar">
+    <div class="navbar-container">
+      <h1 class="logo">Afropot</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="catering.html">Catering</a></li>
+        <li><a href="giftcard.html">Gift Card</a></li>
+        <li><a href="delivery.html">Delivery</a></li>
+        <li><a href="track-order.html">Track Order</a></li>
+        <li><a class="active" href="blog.html">Blog</a></li>
+      </ul>
+      <div class="cart-box"><i class="fa-solid fa-cart-shopping"></i> My Orders</div>
+    </div>
+  </header>
+
+  <!-- 📰 BLOG HERO -->
+  <section class="blog-hero">
+    <h1>Afropot Blog</h1>
+    <p>Discover stories, kitchen secrets, and tasty traditions behind your favorite Nigerian dishes.</p>
+  </section>
+
+  <!-- 🧑‍🍳 BLOG GRID -->
+  <section class="blog-container">
+
+    <!-- Blog 1 -->
+    <div class="blog-card">
+      <div class="blog-banner">Nigerian Dishes</div>
+      <div class="blog-content">
+        <h3>Top 5 Nigerian Dishes You Must Try</h3>
+        <p>From the smoky flavour of Jollof Rice to the spicy warmth of Egusi Soup, discover the meals that define Nigerian culture.</p>
+        <a href="blog-post1.html" class="read-more">Read More</a>
+      </div>
+    </div>
+
+    <!-- Blog 2 -->
+    <div class="blog-card">
+      <div class="blog-banner">Food Delivery</div>
+      <div class="blog-content">
+        <h3>How We Deliver Fresh Meals – Every Time!</h3>
+        <p>See how Afropot ensures every meal reaches you hot, fresh, and filled with love – from kitchen to doorstep.</p>
+        <a href="blog-post2.html" class="read-more">Read More</a>
+      </div>
+    </div>
+
+    <!-- Blog 3 -->
+    <div class="blog-card">
+      <div class="blog-banner">Chef Story</div>
+      <div class="blog-content">
+        <h3>Meet Our Head Chef – The Heart Behind Afropot</h3>
+        <p>Chef Guven shares his inspiration for bringing authentic Nigerian taste to Berlin with a touch of home.</p>
+        <a href="blog-post3.html" class="read-more">Read More</a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ✅ FOOTER -->
+  <footer>
+    <p>© 2025 Afropot | Nigerian Food Ordering & Delivery Platform |
+      <a href="mailto:respectme060@gmail.com">respectme060@gmail.com</a>
+    </p>
+  </footer>
+
+</body>
+</html>

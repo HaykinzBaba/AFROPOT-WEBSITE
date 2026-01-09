@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Afropot</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f9f4;
+      color: #1a2d16;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      background: #76b852;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .navbar h1 {
+      color: #0f3314;
+      font-size: 1.7rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .navbar ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar a {
+      color: #0f3314;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .navbar a:hover,
+    .navbar .active {
+      color: #fff;
+      background: #0f3314;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+    }
+
+    /* ===== CONTACT SECTION ===== */
+    .contact-container {
+      max-width: 950px;
+      margin: 3rem auto;
+      background: #fff;
+      padding: 2.5rem;
+      border-radius: 14px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .contact-container h2 {
+      text-align: center;
+      color: #0f3314;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .contact-form {
+      flex: 1 1 420px;
+    }
+
+    .contact-form label {
+      display: block;
+      font-weight: 500;
+      margin-top: 10px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-top: 5px;
+      font-size: 1rem;
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      height: 130px;
+    }
+
+    .contact-form button {
+      background: #76b852;
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 15px;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: 0.3s;
+      width: 100%;
+    }
+
+    .contact-form button:hover {
+      background: #5f9e43;
+    }
+
+    .contact-info {
+      flex: 1 1 350px;
+    }
+
+    .contact-info p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .contact-info a {
+      color: #2a8f46;
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    iframe {
+      width: 100%;
+      height: 220px;
+      border-radius: 8px;
+      margin-top: 15px;
+      border: none;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: linear-gradient(180deg, #0f3314 0%, #1f5a2c 100%);
+      color: #fff;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+
+    .payment-logos img {
+      width: 60px;
+      margin: 8px;
+      background: #fff;
+      border-radius: 8px;
+      padding: 5px;
+    }
+
+    .footer-note {
+      color: #ccc;
+      font-size: 0.9rem;
+      margin-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding-top: 10px;
+    }
+
+    /* ===== FLOATING BUTTONS ===== */
+    .floating-buttons {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 9999;
+    }
+
+    .floating-btn {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 55px;
+      font-size: 26px;
+      color: white;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .chatbot-float {
+      background: #8de264;
+      color: #0f3314;
+    }
+
+    .whatsapp-float {
+      background: #25d366;
+    }
+
+    .floating-btn:hover {
+      transform: scale(1.15);
+    }
+
+    /* ===== CHATBOT POPUP ===== */
+    .chatbot-popup {
+      position: fixed;
+      bottom: 100px;
+      right: 25px;
+      width: 320px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 10000;
+    }
+
+    .chatbot-header {
+      background: #76b852;
+      color: #fff;
+      padding: 0.8rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+    }
+
+    .chatbot-body {
+      padding: 1rem;
+      height: 250px;
+      overflow-y: auto;
+      background: #f9fff8;
+      color: #333;
+    }
+
+    .chatbot-input {
+      display: flex;
+      padding: 0.6rem;
+      border-top: 1px solid #ddd;
+      background: #fff;
+    }
+
+    .chatbot-input input {
+      flex: 1;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      outline: none;
+    }
+
+    .chatbot-input button {
+      background: #76b852;
+      border: none;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      margin-left: 0.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .chatbot-input button:hover {
+      background: #5f9e43;
+    }
+
+    @media (max-width: 768px) {
+      .contact-content {
+        flex-direction: column;
+      }
+      .contact-container {
+        margin: 1rem;
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar">
+    <h1>Afropot</h1>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="catering.html">Catering</a></li>
+      <li><a href="giftcard.html">Gift Card</a></li>
+      <li><a class="active" href="contact.html">Contact</a></li>
+    </ul>
+  </header>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section class="contact-container">
+    <h2>Get in Touch with Us</h2>
+    <div class="contact-content">
+      <div class="contact-form">
+        <form id="contactForm">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="from_name" placeholder="Your Name" required />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="reply_to" placeholder="Your Email" required />
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+
+      <div class="contact-info">
+        <p><i class="fa-solid fa-envelope"></i>
+          <a href="mailto:respectme060@gmail.com">respectme060@gmail.com</a></p>
+        <p><i class="fa-solid fa-phone"></i>
+          <a href="tel:+4915210783298">+49 1521 0783298</a></p>
+        <p><i class="fa-brands fa-whatsapp"></i>
+          <a href="https://wa.me/233556908606?text=Hello%20Afropot%20👋%20I'm%20interested%20in%20your%20menu!"
+             target="_blank">Chat on WhatsApp</a></p>
+        <p><i class="fa-solid fa-location-dot"></i> Konrad-Zuse-Ring 11, 14469 Potsdam, Germany</p>
+        <iframe src="https://www.google.com/maps?q=Konrad-Zuse-Ring+11,+14469+Potsdam,+Germany&output=embed" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="payment-logos">
+      <img src="images/Visa.png" alt="Visa">
+      <img src="images/mastercard.png" alt="Mastercard">
+      <img src="images/google_pay.png" alt="Google Pay">
+      <img src="images/apple_pay.png" alt="Apple Pay">
+    </div>
+    <p class="footer-note">© 2025 Afropot | Nigerian Food Ordering & Delivery Platform | All Rights Reserved.</p>
+  </footer>
+
+  <!-- ===== FLOATING BUTTONS ===== -->
+  <div class="floating-buttons">
+    <div class="floating-btn chatbot-float" id="chatbotBtn"><i class="fas fa-robot"></i></div>
+    <a href="https://wa.me/233556908606?text=Hello%20Afropot%20👋%20I'm%20interested%20in%20your%20menu!"
+       target="_blank" class="floating-btn whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+  </div>
+
+  <!-- ===== CHATBOT POPUP ===== -->
+  <div class="chatbot-popup" id="chatbotPopup">
+    <div class="chatbot-header">
+      Afropot Assistant 🤖
+      <span id="closeChat" style="cursor:pointer;">✖</span>
+    </div>
+    <div class="chatbot-body" id="chatMessages">
+      <p><strong>Afropot Bot:</strong> 👋 Hi there! How can I help you today?</p>
+    </div>
+    <div class="chatbot-input">
+      <input type="text" id="userMessage" placeholder="Type your message..." />
+      <button id="sendMsg">Send</button>
+    </div>
+  </div>
+
+  <!-- ===== EMAILJS & CHATBOT SCRIPT ===== -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS Public Key
+    })();
+
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      
+      emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
+        .then(() => {
+          alert("✅ Message sent successfully! We’ll get back to you soon.");
+          this.reset();
+        }, (error) => {
+          alert("❌ Message failed to send. Please try again later.");
+          console.log("EmailJS Error:", error);
+        });
+    });
+
+    // ===== CHATBOT LOGIC =====
+    const chatbotBtn = document.getElementById("chatbotBtn");
+    const chatbotPopup = document.getElementById("chatbotPopup");
+    const closeChat = document.getElementById("closeChat");
+    const sendBtn = document.getElementById("sendMsg");
+    const userInput = document.getElementById("userMessage");
+    const chatMessages = document.getElementById("chatMessages");
+
+    chatbotBtn.addEventListener("click", () => chatbotPopup.style.display = "flex");
+    closeChat.addEventListener("click", () => chatbotPopup.style.display = "none");
+
+    sendBtn.addEventListener("click", sendMessage);
+    userInput.addEventListener("keypress", e => { if (e.key === "Enter") sendMessage(); });
+
+    function sendMessage() {
+      const msg = userInput.value.trim();
+      if (!msg) return;
+      chatMessages.innerHTML += `<p><strong>You:</strong> ${msg}</p>`;
+      userInput.value = "";
+      setTimeout(() => {
+        chatMessages.innerHTML += `<p><strong>Afropot Bot:</strong> Thanks! Visit our <a href='menu.html' style='color:#2a8f46;font-weight:bold;'>Menu</a> for more 🍲</p>`;
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }, 600);
+    }
+  </script>
+</body>
+</html>

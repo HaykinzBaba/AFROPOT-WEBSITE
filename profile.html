@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile | Afropot</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    body {
+      background-color: #f5f9f4;
+      font-family: "Poppins", sans-serif;
+      color: #1a2d16;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ===== Navbar ===== */
+    .navbar {
+      background: #76b852;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: #1a2d16;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #000;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(0, 0, 0, 0.1);
+      color: #fff;
+    }
+
+    .nav-links a.active {
+      background: #1a2d16;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    /* ===== Profile Section ===== */
+    .profile-container {
+      max-width: 500px;
+      margin: 4rem auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      padding: 2.5rem;
+      text-align: center;
+      animation: fadeIn 0.6s ease;
+    }
+
+    .profile-container h2 {
+      margin-bottom: 0.5rem;
+      color: #1a2d16;
+    }
+
+    .profile-container p {
+      color: #555;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .profile-container input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .update-btn, .logout-btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      transition: background 0.3s ease;
+    }
+
+    .update-btn {
+      background: #76b852;
+      color: white;
+    }
+
+    .update-btn:hover {
+      background: #5f9e43;
+    }
+
+    .logout-btn {
+      background: #e74c3c;
+      color: white;
+    }
+
+    .logout-btn:hover {
+      background: #c0392b;
+    }
+
+    .info-box {
+      background: #e8fbe2;
+      color: #1a2d16;
+      border-left: 4px solid #76b852;
+      padding: 0.8rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    .success-box {
+      display: none;
+      background: #dfffd8;
+      color: #1a2d16;
+      padding: 1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      margin-top: 1rem;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      background: #0f3314;
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 4rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ✅ Navbar -->
+  <header class="navbar">
+    <h1 class="logo">Afropot</h1>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="catering.html">Catering</a></li>
+      <li><a href="giftcard.html">Gift Card</a></li>
+      <li><a href="myorders.html">My Orders</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a class="active" href="profile.html">Profile</a></li>
+    </ul>
+  </header>
+
+  <!-- ✅ Profile Section -->
+  <section class="profile-container">
+    <h2>👤 My Profile</h2>
+    <div class="info-box" id="userInfo">
+      <p><strong>Name:</strong> <span id="userName">—</span></p>
+      <p><strong>Email:</strong> <span id="userEmail">—</span></p>
+      <p><strong>Joined:</strong> <span id="userJoined">—</span></p>
+    </div>
+
+    <form id="updateForm">
+      <input type="text" id="updateName" placeholder="Update Name" />
+      <input type="password" id="updatePassword" placeholder="Change Password" />
+      <button type="submit" class="update-btn">Update Profile</button>
+    </form>
+
+    <button class="logout-btn" onclick="logout()">Logout</button>
+
+    <div id="successBox" class="success-box">✅ Profile updated successfully!</div>
+  </section>
+
+  <footer>
+    <p>© 2025 Afropot | Nigerian Food Ordering & Delivery Platform | All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const user = JSON.parse(localStorage.getItem("afropotLoggedIn"));
+    const successBox = document.getElementById("successBox");
+
+    if (!user) {
+      alert("⚠️ Please log in first.");
+      window.location.href = "login.html";
+    } else {
+      document.getElementById("userName").textContent = user.name;
+      document.getElementById("userEmail").textContent = user.email;
+      document.getElementById("userJoined").textContent = user.joined || "N/A";
+    }
+
+    document.getElementById("updateForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const newName = document.getElementById("updateName").value.trim();
+      const newPassword = document.getElementById("updatePassword").value.trim();
+
+      let users = JSON.parse(localStorage.getItem("afropotUsers")) || [];
+      const userIndex = users.findIndex(u => u.email === user.email);
+
+      if (userIndex !== -1) {
+        if (newName) users[userIndex].name = newName;
+        if (newPassword) users[userIndex].password = newPassword;
+        localStorage.setItem("afropotUsers", JSON.stringify(users));
+
+        // Update current session
+        const updatedUser = users[userIndex];
+        localStorage.setItem("afropotLoggedIn", JSON.stringify(updatedUser));
+
+        document.getElementById("userName").textContent = updatedUser.name;
+        document.getElementById("updateName").value = "";
+        document.getElementById("updatePassword").value = "";
+
+        successBox.style.display = "block";
+        setTimeout(() => { successBox.style.display = "none"; }, 2000);
+      }
+    });
+
+    function logout() {
+      localStorage.removeItem("afropotLoggedIn");
+      alert("👋 You have been logged out.");
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>

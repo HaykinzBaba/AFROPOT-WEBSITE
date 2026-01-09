@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catering Bookings | Afropot</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    body {
+      background-color: #f5f9f4;
+      font-family: "Poppins", sans-serif;
+      color: #1a2d16;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ===== NAVBAR ===== */
+    header.navbar {
+      background-color: #76b852;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+    }
+
+    .navbar-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.9rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1a2d16;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: #000;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(0,0,0,0.1);
+      color: #fff !important;
+    }
+
+    .nav-links a.active {
+      background-color: #1a2d16;
+      color: #fff !important;
+    }
+
+    .cart-box {
+      background: #fff;
+      color: #1a2d16;
+      padding: 6px 14px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .cart-box:hover {
+      background-color: #8de264;
+      color: #0f3314;
+    }
+
+    /* ===== BOOKINGS SECTION ===== */
+    .bookings-container {
+      max-width: 900px;
+      margin: 3rem auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      animation: fadeIn 0.6s ease;
+    }
+
+    .bookings-container h2 {
+      text-align: center;
+      color: #0f3314;
+      margin-bottom: 1.5rem;
+    }
+
+    .booking-card {
+      background: #f9fff7;
+      border-left: 5px solid #76b852;
+      border-radius: 8px;
+      padding: 1.2rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .booking-card:hover {
+      transform: scale(1.02);
+    }
+
+    .booking-card h3 {
+      margin: 0;
+      color: #1a2d16;
+      font-size: 1.1rem;
+    }
+
+    .booking-info {
+      font-size: 0.9rem;
+      color: #444;
+      margin: 0.3rem 0;
+    }
+
+    .status {
+      display: inline-block;
+      background: #76b852;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 5px;
+      font-size: 0.85rem;
+      margin-top: 5px;
+    }
+
+    .delete-btn {
+      background: #e74c3c;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.3s ease;
+    }
+
+    .delete-btn:hover {
+      background: #c0392b;
+    }
+
+    .no-bookings {
+      text-align: center;
+      padding: 2rem;
+      color: #555;
+      font-size: 1rem;
+      background: #f5f9f4;
+      border-radius: 8px;
+    }
+
+    footer {
+      background: linear-gradient(180deg, #0f3314 0%, #1f5a2c 100%);
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links { flex-wrap: wrap; justify-content: center; }
+      .bookings-container { padding: 1.5rem; margin: 1.5rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ✅ NAVBAR -->
+  <header class="navbar">
+    <div class="navbar-container">
+      <h1 class="logo">Afropot</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="catering-bookings.html" class="active">Catering</a></li>
+        <li><a href="giftcard.html">Gift Card</a></li>
+        <li><a href="delivery.html">Delivery</a></li>
+        <li><a href="myorders.html">My Orders</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+      <div class="cart-box"><i class="fa-solid fa-cart-shopping"></i> My Cart</div>
+    </div>
+  </header>
+
+  <!-- ✅ BOOKINGS SECTION -->
+  <section class="bookings-container">
+    <h2>🎉 My Catering Bookings</h2>
+    <div id="bookingsList"></div>
+  </section>
+
+  <footer>
+    © 2025 Afropot | Nigerian Food Ordering & Delivery Platform | All Rights Reserved.
+  </footer>
+
+  <script>
+    const user = JSON.parse(localStorage.getItem("afropotLoggedIn"));
+    const bookingsList = document.getElementById("bookingsList");
+
+    if (!user) {
+      alert("⚠️ Please log in to view your catering bookings.");
+      window.location.href = "login.html";
+    } else {
+      loadBookings();
+    }
+
+    function loadBookings() {
+      const bookings = JSON.parse(localStorage.getItem("afropotCateringBookings")) || [];
+      const userBookings = bookings.filter(b => b.email === user.email);
+
+      if (userBookings.length === 0) {
+        bookingsList.innerHTML = `
+          <div class="no-bookings">
+            <i class="fa-solid fa-box-open fa-2x"></i>
+            <p>No catering bookings found yet.</p>
+          </div>`;
+        return;
+      }
+
+      bookingsList.innerHTML = userBookings.map((booking, index) => `
+        <div class="booking-card">
+          <h3>${booking.package}</h3>
+          <p class="booking-info"><strong>Event:</strong> ${booking.details || 'N/A'}</p>
+          <p class="booking-info"><strong>Date:</strong> ${booking.date}</p>
+          <span class="status">Confirmed</span>
+          <br />
+          <button class="delete-btn" onclick="deleteBooking(${index})">Delete</button>
+        </div>
+      `).join("");
+    }
+
+    function deleteBooking(index) {
+      if (confirm("🗑️ Are you sure you want to delete this booking?")) {
+        const bookings = JSON.parse(localStorage.getItem("afropotCateringBookings")) || [];
+        const userBookings = bookings.filter(b => b.email === user.email);
+        userBookings.splice(index, 1);
+        localStorage.setItem("afropotCateringBookings", JSON.stringify(userBookings));
+        loadBookings();
+      }
+    }
+  </script>
+</body>
+</html>

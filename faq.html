@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Afropot | FAQs</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      background: #f5f9f4;
+      color: #1a2d16;
+      animation: pageFade 1.2s ease-in;
+    }
+
+    /* Fade-in animation */
+    @keyframes pageFade {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background: #76b852;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      flex-wrap: wrap;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1a2d16;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.8rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #000;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover { background: rgba(0, 0, 0, 0.1); color: #fff; }
+    .nav-links a.active { background: #1a2d16; color: #fff; font-weight: 700; }
+
+    /* FAQ SECTION */
+    .faq-container {
+      max-width: 900px;
+      margin: 3rem auto;
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .faq-container h2 {
+      text-align: center;
+      color: #1a2d16;
+      margin-bottom: 2rem;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #ddd;
+      padding: 1rem 0;
+      transition: all 0.4s ease;
+    }
+
+    .faq-question {
+      font-weight: 600;
+      color: #0f3314;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: color 0.3s ease;
+    }
+
+    .faq-question:hover { color: #5f9e43; }
+    .faq-question i { transition: transform 0.4s ease; }
+    .faq-item.active .faq-question i { transform: rotate(180deg); color: #5f9e43; }
+
+    .faq-answer {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: all 0.5s ease;
+      color: #333;
+      line-height: 1.6;
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+    }
+
+    .faq-item.active .faq-answer { max-height: 350px; opacity: 1; }
+
+    /* Google Maps button */
+    .map-btn {
+      display: inline-block;
+      margin-top: 0.8rem;
+      background: #8de264;
+      color: #0f3314;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .map-btn:hover { background: #a4f27e; transform: scale(1.05); }
+
+    /* CONTACT BOX */
+    .contact-box {
+      background: #f5f9f4;
+      border: 2px solid #8de264;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      margin: 3rem auto 0;
+      max-width: 700px;
+    }
+
+    .contact-box h3 { color: #0f3314; margin-bottom: 0.8rem; font-size: 1.4rem; }
+    .contact-box p { color: #333; margin-bottom: 1.2rem; }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #8de264;
+      color: #0f3314;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .contact-links a:hover { background: #a4f27e; }
+
+    /* FEEDBACK FORM */
+    .feedback-form {
+      background: #fff;
+      border: 1px solid #cce6b6;
+      border-radius: 12px;
+      padding: 1.5rem;
+      max-width: 650px;
+      margin: 2rem auto 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      text-align: left;
+    }
+
+    .feedback-form h4 { color: #0f3314; margin-bottom: 1rem; font-size: 1.2rem; }
+
+    .feedback-form label {
+      display: block;
+      margin-top: 0.8rem;
+      color: #1a2d16;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .feedback-form input,
+    .feedback-form textarea {
+      width: 100%;
+      padding: 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-top: 0.4rem;
+      font-size: 0.95rem;
+      font-family: "Poppins", sans-serif;
+      outline: none;
+      transition: border 0.2s ease;
+    }
+
+    .feedback-form input:focus,
+    .feedback-form textarea:focus { border-color: #8de264; }
+
+    .feedback-form button {
+      margin-top: 1.2rem;
+      background: #8de264;
+      color: #0f3314;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      width: 100%;
+    }
+
+    .feedback-form button:hover { background: #a4f27e; }
+
+    footer {
+      background: #0f3314;
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <h1 class="logo">Afropot</h1>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="catering.html">Catering</a></li>
+      <li><a href="giftcard.html">Gift Card</a></li>
+      <li><a class="active" href="faq.html">FAQ</a></li>
+    </ul>
+  </header>
+
+  <!-- FAQ CONTENT -->
+  <section class="faq-container">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <div class="faq-question"><span>Where are you located?</span><i class="fa-solid fa-chevron-down"></i></div>
+      <div class="faq-answer">
+        We are located at Think Campus, Konrad-Zuse-Ring 11, 14469 Potsdam, Germany.<br />
+        <a href="https://www.google.com/maps?q=Think+Campus,+Konrad-Zuse-Ring+11,+14469+Potsdam,+Germany" target="_blank" class="map-btn">
+          📍 View on Google Maps
+        </a>
+      </div>
+    </div>
+
+    <div class="faq-item"><div class="faq-question"><span>What is Afropot?</span><i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">Afropot is an authentic Nigerian cuisine service offering freshly made traditional meals and drinks right here in Potsdam, Germany. You can order online or pick up directly from our location.</div></div>
+
+    <div class="faq-item"><div class="faq-question"><span>How can I place an order?</span><i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">Visit our <a href="menu.html">Menu</a> page, choose your dishes, add them to your cart, and checkout with your preferred payment option.</div></div>
+
+    <div class="faq-item"><div class="faq-question"><span>Do you offer catering services?</span><i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">Yes, we offer catering for events, weddings, and corporate functions. View our <a href="catering.html">Catering Menu</a> or contact us for special arrangements.</div></div>
+
+    <div class="faq-item"><div class="faq-question"><span>What payment methods do you accept?</span><i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">We accept Visa, MasterCard, Apple Pay, Google Pay, and cash on pickup.</div></div>
+
+    <div class="faq-item"><div class="faq-question"><span>Can I cancel or change my order?</span><i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">Orders can be changed or cancelled within 10 minutes after placing them. Please reach out via WhatsApp or call for quick assistance.</div></div>
+
+    <div class="faq-item"><div class="faq-question"><span>Do you offer vegetarian or vegan options?</span><i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">Yes! We have vegetarian dishes like Moi Moi and fried rice with vegetables. Vegan options are also available on request.</div></div>
+
+    <div class="faq-item"><div class="faq-question"><span>What are your working hours?</span><i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">We’re open Monday to Sunday, from 9:00 AM to 10:00 PM.</div></div>
+  </section>
+
+  <!-- CONTACT + FEEDBACK -->
+  <div class="contact-box">
+    <h3>Still Have Questions?</h3>
+    <p>We’re happy to help! Contact us directly via WhatsApp or Email — our team will respond quickly.</p>
+    <div class="contact-links">
+      <a href="https://wa.me/233556908606" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+      <a href="mailto:respectme060@gmail.com"><i class="fa-solid fa-envelope"></i> Send an Email</a>
+    </div>
+
+    <form class="feedback-form" id="contactForm">
+      <h4>Send Us a Message</h4>
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="from_name" required placeholder="Enter your name" />
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="from_email" required placeholder="Enter your email" />
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="4" required placeholder="Type your message here..."></textarea>
+      <button type="submit">Submit Message</button>
+    </form>
+  </div>
+
+  <footer><p>© 2025 Afropot | Nigerian Food Ordering & Delivery Platform | All Rights Reserved.</p></footer>
+
+  <script>
+    document.querySelectorAll('.faq-question').forEach(q=>{
+      q.addEventListener('click',()=>{ q.parentElement.classList.toggle('active'); });
+    });
+  </script>
+</body>
+</html>
