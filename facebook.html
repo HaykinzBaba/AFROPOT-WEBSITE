@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Afropot - Facebook Page</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="catering.html">Catering Menu</a></li>
+        <li><a href="giftcard.html">Gift Card</a></li>
+        <li><a href="facebook.html" class="active">Facebook</a></li>
+      </ul>
+      <h1 class="logo">Afropot</h1>
+      <div class="nav-actions">
+        <button class="order-btn" onclick="window.location.href='order.html'">Order Now</button>
+        <input type="search" placeholder="Search..." />
+        <span class="cart">🛒</span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Facebook Section -->
+  <section class="facebook-section">
+    <h2>Follow Afropot on Facebook</h2>
+    <p>Stay connected with us! Discover our latest Nigerian dishes, offers, and events.</p>
+
+    <!-- Embedded Facebook Page -->
+    <div class="fb-container">
+      <iframe 
+        src="https://www.facebook.com/plugins/page.php?
+        href=https%3A%2F%2Fwww.facebook.com%2FAfropotRestaurantBerlin
+        &tabs=timeline
+        &width=500
+        &height=600
+        &small_header=false
+        &adapt_container_width=true
+        &hide_cover=false
+        &show_facepile=true"
+        width="500"
+        height="600"
+        style="border:none;overflow:hidden"
+        scrolling="no"
+        frameborder="0"
+        allowfullscreen="true"
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+      </iframe>
+    </div>
+
+    <div class="visit-btn-container">
+      <button class="visit-btn" onclick="window.open('https://www.facebook.com/AfropotRestaurantBerlin', '_blank')">
+        Visit Facebook Page
+      </button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Afropot. All Rights Reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
